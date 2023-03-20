@@ -33,6 +33,10 @@ def insert(val, pq):
       >>> insert(3, pq)
       >>> print(pq.data)
       [3, 7]
+      >>> insert(5, pq)
+      >>> insert(6, pq)
+      >>> print(pq.data)
+      [3, 6, 5, 7]
     """
     pq.data.append(val) 
     if val < pq.data[0]:
