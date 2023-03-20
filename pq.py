@@ -4,6 +4,14 @@ class PQ:
     >>> pq.size()
       0
     """
+    def __init__(self):
+        self.data = []
+
+    def __eq__(self, other):
+        return self.data == other.data
+
+    def size(self):
+        return len(self.data)
 
 def new():
 #returns a priority queue
@@ -12,9 +20,10 @@ def new():
       >>> isinstance(pq, PQ)
       True
     """
+    return PQ()
 
 
-def insert():
+def insert(val, pq):
     """
       >>> pq = new()
       >>> pq.size()
@@ -23,13 +32,14 @@ def insert():
       >>> pq.size()
       1
     """
+    pq.data.append(val)
 
-def priority():
+def priority(val):
     """
     """
         
     
-def min():
+def min(pq):
 #v
     """
       >>> pq = new()
@@ -37,9 +47,10 @@ def min():
       >>> min(pq)
       7
     """
+    return pq.data[0]
 
 
-def dm():
+def dm(pq):
 #new()
     """
       >>> original = new()
@@ -53,6 +64,7 @@ def dm():
       >>> pq == original
       True
     """
+    pq.data.remove(pq.data[0])
 
 
 if __name__ == "__main__":
