@@ -38,6 +38,7 @@ def priority(val):
       >>> priority(7) == 7
       True
     """
+    return val
         
     
 def min(pq):
