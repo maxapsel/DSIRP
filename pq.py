@@ -2,7 +2,7 @@ class PQ:
     """
     >>> pq = new()
     >>> pq.size()
-      0
+    0
     """
     def __init__(self):
         self.data = []
