@@ -14,7 +14,6 @@ class PQ:
         return len(self.data)
 
 def new():
-#returns a priority queue
     """
       >>> pq = new()
       >>> isinstance(pq, PQ)
@@ -32,15 +31,16 @@ def insert(val, pq):
       >>> pq.size()
       1
     """
-    pq.data.append(val)
+    pq.data.append(val) 
 
 def priority(val):
     """
+      >>> priority(7) == 7
+      True
     """
         
     
 def min(pq):
-#v
     """
       >>> pq = new()
       >>> insert(7, pq)
@@ -51,7 +51,6 @@ def min(pq):
 
 
 def dm(pq):
-#new()
     """
       >>> original = new()
       >>> pq = new()
