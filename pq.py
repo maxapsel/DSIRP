@@ -30,7 +30,11 @@ def insert(val, pq):
       >>> insert(7, pq)
       >>> pq.size()
       1
+      >>> insert(3, pq)
+      >>> print(pq.data)
+      [3, 7]
     """
+
     pq.data.append(val) 
 
 def priority(val):
