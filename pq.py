@@ -13,6 +13,7 @@ class PQ:
     def size(self):
         return len(self.data)
 
+#done
 def new():
     """
       >>> pq = new()
@@ -21,7 +22,7 @@ def new():
     """
     return PQ()
 
-
+#done
 def insert(val, pq):
     """
       >>> pq = new()
@@ -37,6 +38,9 @@ def insert(val, pq):
       >>> insert(6, pq)
       >>> print(pq.data)
       [3, 6, 5, 7]
+      >>> insert(1, pq)
+      >>> print(pq.data)
+      [1, 3, 5, 7, 6]
     """
     pq.data.append(val)
     i = len(pq.data) - 1
@@ -47,6 +51,7 @@ def insert(val, pq):
         pq.data[parent], pq.data[i] = pq.data[i], pq.data[parent]
         i = parent
 
+#done
 def priority(val):
     """
       >>> priority(7) == 7
@@ -54,7 +59,7 @@ def priority(val):
     """
     return val
         
-    
+#done
 def min(pq):
     """
       >>> pq = new()
@@ -72,13 +77,21 @@ def dm(pq):
       >>> pq == original
       True
       >>> insert(7, pq)
+      >>> insert(5, pq)
+      >>> insert(3, pq)
+      >>> insert(6, pq)
+      >>> insert(1, pq)
       >>> pq == original
       False
       >>> dm(pq)
       >>> pq == original
       True
+      >>> is_heap(pq.data)
+      True
     """
-    pq.data.remove(pq.data[0])
+    pq.data.pop(pq.data[0])
+
+
 
 
 if __name__ == "__main__":
