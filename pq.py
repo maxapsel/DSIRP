@@ -90,8 +90,27 @@ def dm(pq):
       [3, 5, 7, 6]
       >>> is_heap(pq.data)
       True
+      >>> dm(pq)
+      >>> is_heap(pq.data)
+      True
+      >>> dm(pq)
+      >>> is_heap(pq.data)
+      True
     """
     pq.data.remove(pq.data[0])
+    i = 0
+    n = len(pq.data)
+    while not is_heap(pq.data):
+      left = i * 2 + 1
+      right = i * 2 + 2
+      if left < n and pq.data[left] < pq.data[i]:
+        smallest_child = left
+      else:
+        smallest_child = i
+      if right < n and pq.data[right] < pq.data[smallest_child]:
+        smallest_child = right
+      pq.data[i], pq.data[smallest_child] = pq.data[smallest_child], pq.data[i]
+      i = smallest_child
 
 
 def is_heap(heap):
