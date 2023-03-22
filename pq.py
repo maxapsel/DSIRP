@@ -38,9 +38,14 @@ def insert(val, pq):
       >>> print(pq.data)
       [3, 6, 5, 7]
     """
-    pq.data.append(val) 
-    if val < pq.data[0]:
-        pq.data[0], pq.data[len(pq.data) - 1] = val, pq.data[0]
+    pq.data.append(val)
+    i = len(pq.data) - 1
+    while i > 0:
+        parent = (i - 1) // 2
+        if pq.data[parent] <= pq.data[i]:
+            break
+        pq.data[parent], pq.data[i] = pq.data[i], pq.data[parent]
+        i = parent
 
 def priority(val):
     """
