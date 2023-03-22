@@ -81,20 +81,23 @@ def dm(pq):
       >>> insert(3, pq)
       >>> insert(6, pq)
       >>> insert(1, pq)
+      >>> print(pq.data)
+      [1, 3, 5, 7, 6]
       >>> pq == original
       False
       >>> dm(pq)
-      >>> pq == original
-      True
+      >>> print(pq.data)
+      [3, 5, 7, 6]
       >>> is_heap(pq.data)
       True
     """
-    pq.data.pop(pq.data[0])
+    pq.data.remove(pq.data[0])
+
 
 def is_heap(heap):
   for i in range(1, len(heap)):
     parent = (i - 1) // 2
-    if heap[parent] >= heap[i]:
+    if heap[parent] > heap[i]:
       return False
   return True
 
