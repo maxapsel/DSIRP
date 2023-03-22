@@ -91,7 +91,12 @@ def dm(pq):
     """
     pq.data.pop(pq.data[0])
 
-
+def is_heap(heap):
+  for i in range(1, len(heap)):
+    parent = (i - 1) // 2
+    if heap[parent] >= heap[i]:
+      return False
+  return True
 
 
 if __name__ == "__main__":
