@@ -143,18 +143,24 @@ if __name__ == "__main__":
   doctest.testmod()
 """
 
-
+from binarytree import build
 pq = new()
 data = [4, 7, 2, 1, 5, 3, 9, 8]
 insert(data, pq)
 print(pq.data)
+print(build(pq.data))
 dm(pq)
 print(pq.data)
+print(build(pq.data))
 dm(pq)
 print(pq.data)
+print(build(pq.data))
 insert(0, pq)
 print(pq.data)
+print(build(pq.data))
 insert([45, 32, 97, 21, 12, 33], pq)
 print(pq.data)
+print(build(pq.data))
 dm(pq)
 print(pq.data)
+print(build(pq.data))
