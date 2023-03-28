@@ -13,6 +13,7 @@ class PQ:
     def size(self):
         return len(self.data)
 
+
 #done
 def new():
     """
@@ -42,14 +43,31 @@ def insert(val, pq):
       >>> print(pq.data)
       [1, 3, 5, 7, 6]
     """
-    pq.data.append(val)
-    i = len(pq.data) - 1
-    while i > 0:
-        parent = (i - 1) // 2
-        if pq.data[parent] <= pq.data[i]:
-            break
-        pq.data[parent], pq.data[i] = pq.data[i], pq.data[parent]
-        i = parent
+    if isinstance(val, list):
+      def flat(lis):
+        flatList = []
+        # Iterate with outer list
+        for element in lis:
+            if type(element) is list:
+                # Check if type is list than iterate through the sublist
+                element = flat(element)
+                for item in element:
+                    flatList.append(item)
+            else:
+                flatList.append(element)
+        return flatList
+      queue = flat(val)
+      for item in queue:
+        insert(item, pq)
+    else:
+      pq.data.append(val)
+      i = len(pq.data) - 1
+      while i > 0:
+          parent = (i - 1) // 2
+          if pq.data[parent] <= pq.data[i]:
+              break
+          pq.data[parent], pq.data[i] = pq.data[i], pq.data[parent]
+          i = parent
 
 #done
 def priority(val):
@@ -69,7 +87,7 @@ def min(pq):
     """
     return pq.data[0]
 
-
+#done
 def dm(pq):
     """
       >>> original = new()
@@ -120,7 +138,12 @@ def is_heap(heap):
       return False
   return True
 
-
+"""
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
+"""
+pq = new()
+data = [4, 7, 2, 1, 5, 3, 9, 8]
+insert(data, pq)
+print(pq.data)
