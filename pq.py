@@ -12,6 +12,8 @@ class PQ:
 
     def size(self):
         return len(self.data)
+    
+    
 
 
 #done
@@ -44,20 +46,7 @@ def insert(val, pq):
       [1, 3, 5, 7, 6]
     """
     if isinstance(val, list):
-      def flat(lis):
-        flatList = []
-        # Iterate with outer list
-        for element in lis:
-            if type(element) is list:
-                # Check if type is list than iterate through the sublist
-                element = flat(element)
-                for item in element:
-                    flatList.append(item)
-            else:
-                flatList.append(element)
-        return flatList
-      queue = flat(val)
-      for item in queue:
+      for item in val:
         insert(item, pq)
     else:
       pq.data.append(val)
@@ -68,6 +57,7 @@ def insert(val, pq):
               break
           pq.data[parent], pq.data[i] = pq.data[i], pq.data[parent]
           i = parent
+
 
 #done
 def priority(val):
@@ -115,20 +105,29 @@ def dm(pq):
       >>> is_heap(pq.data)
       True
     """
+    if len(pq.data) == 0:
+      return "Empty"
+    
     pq.data.remove(pq.data[0])
-    i = 0
-    n = len(pq.data)
-    while not is_heap(pq.data):
-      left = i * 2 + 1
-      right = i * 2 + 2
-      if left < n and pq.data[left] < pq.data[i]:
-        smallest_child = left
-      else:
-        smallest_child = i
-      if right < n and pq.data[right] < pq.data[smallest_child]:
-        smallest_child = right
-      pq.data[i], pq.data[smallest_child] = pq.data[smallest_child], pq.data[i]
-      i = smallest_child
+    if len(pq.data) > 1:
+      i = 0
+      n = len(pq.data)
+      while True:
+        left = 2 * i + 1
+        right = 2 * i + 2
+        if left < n and pq.data[left] < pq.data[i]:
+          smallest_child = left
+        else:
+          smallest_child = i
+        if right < n and pq.data[right] < pq.data[smallest_child]:
+          smallest_child = right
+        if smallest_child == i and is_heap(pq.data):
+          break
+        elif smallest_child != i and not is_heap(pq.data):
+          pq.data[i], pq.data[smallest_child] = pq.data[smallest_child], pq.data[i]
+          i = smallest_child
+        else:
+          i +=1
 
 
 def is_heap(heap):
@@ -140,10 +139,22 @@ def is_heap(heap):
 
 """
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+  import doctest
+  doctest.testmod()
 """
+
+
 pq = new()
 data = [4, 7, 2, 1, 5, 3, 9, 8]
 insert(data, pq)
+print(pq.data)
+dm(pq)
+print(pq.data)
+dm(pq)
+print(pq.data)
+insert(0, pq)
+print(pq.data)
+insert([45, 32, 97, 21, 12, 33], pq)
+print(pq.data)
+dm(pq)
 print(pq.data)
