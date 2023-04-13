@@ -7,4 +7,4 @@ Data Structures and Information Retrieval in Python
 
 * [Expression Tree Project](https://github.com/maxapsel/DSIRP/blob/main/notebooks/expressionFNL.ipynb)
 
-* [C++ Work](https://github.com/maxapsel/DSIRP/tree/main/cpp
+* [C++ Work](https://github.com/maxapsel/DSIRP/tree/main/cpp)
