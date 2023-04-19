@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-void countLetters(string word, char letter) {
+void countLettersTraverse(string word, char letter) {
 	int count = 0;
 	int index = 0;
 
@@ -13,6 +13,17 @@ void countLetters(string word, char letter) {
     		index = index + 1;
 	}
 	cout << count << endl;
+}
+
+void countLetters(string word, char letter) {
+        int count = 0;
+        int index = 0;
+
+        while(index < word.length() && word.find(letter, index) != -1) {
+		count++;
+		index = word.find(letter, index) + 1;
+	}
+        cout << count << endl;
 }
 
 int main() {
