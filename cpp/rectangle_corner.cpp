@@ -17,9 +17,16 @@ Point lowerRight(Rectangle& rect) {
 	return result;
 }
 
+double findArea(Rectangle& rect) {
+	double area = rect.width * rect.height;
+	return area;
+}
+
 int main() {
 	Rectangle rect = {{10, 10}, 10, 10};
 	Point p = lowerRight(rect);	
 	cout << "(" << p.x << ", " << p.y << ")" << endl;
+	double area = findArea(rect);
+	cout << area << endl;
 	return 0;
 }
