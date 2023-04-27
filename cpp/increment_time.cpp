@@ -8,20 +8,6 @@ struct Time {
     void increment(double secs);
 };
 
-void Time::increment(double secs)
-{
-    second += secs;
-
-    while (second >= 60.0) {
-        second -= 60.0;
-        minute += 1;
-    }
-    while (minute >= 60) {
-        minute -= 60;
-        hour += 1;
-    }
-}
-
 double convert_to_seconds(const Time& t)
 {
     int minutes = t.hour * 60 + t.minute;
@@ -46,6 +32,19 @@ void increment(Time& time, double secs)
 {
     time.second += secs;
     time = make_time(convert_to_seconds(time));
+}
+
+void Time::increment(double secs)
+{
+    second += secs;
+    int minutes = hour * 60 + minute;
+    double seconds = minutes * 60 + second;
+
+    hour = int(seconds / 3600.0);
+    seconds -= hour * 3600.0;
+    minute = int(seconds / 60.0);
+    seconds -= minute * 60;
+    second = seconds;
 }
 
 int main () {
