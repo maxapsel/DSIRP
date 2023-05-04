@@ -8,6 +8,13 @@ struct Time {
     void increment(double secs);
 };
 
+void Time::to_string()
+{
+    Time time = *this;
+    string output = time.hour + ":" + time.minute + ":" + time.second;
+    return output;
+}
+
 double convert_to_seconds(const Time& t)
 {
     int minutes = t.hour * 60 + t.minute;
