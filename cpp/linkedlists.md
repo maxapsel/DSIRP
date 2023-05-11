@@ -49,7 +49,7 @@ The deleteTask function deletes a specified task from the linked list. Here's ho
 
 
 The function first starts at the head of the linked list and moves through the list until it finds the Todo struct containing the specified task. Once it finds the correct Todo struct, it updates the next pointer for the previous Todo struct to skip the current Todo struct, effectively removing the current Todo struct from the linked list. 
-<mark> It then deallocates the memory for the current Todo struct using the delete operator.</mark>
+**It then deallocates the memory for the current Todo struct using the delete operator.**
 If the specified task is not found, the function outputs an error message.
 
 ### Displaying the List
